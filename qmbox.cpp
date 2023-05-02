@@ -1,7 +1,6 @@
 /*-
- * Copyright (c) 2011-2013 Hans Petter Selasky <hps@bitfrost.no>
- * All rights reserved.
- *
+ * Copyright (c) 2011-2023 Hans Petter Selasky <hps@selasky.org>
+  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
  * are met:
@@ -404,7 +403,8 @@ QMBoxMainWindow :: parseInputList(QString str)
 
 				linebuffer[offset] = 0;
 
-				if (linebuffer[0] >= '0' && linebuffer[0] <= '9') {
+				if ((linebuffer[0] >= '0' && linebuffer[0] <= '9') ||
+				    (linebuffer[0] == '-' && linebuffer[1] >= '0' && linebuffer[1] <= '9')) {
 					pp = linebuffer;
 					value = strtoll(pp, &pp, 0);
 
